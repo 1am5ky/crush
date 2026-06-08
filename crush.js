@@ -29,7 +29,7 @@ function celebrate() {
   document.getElementById('subtext').innerHTML = 'Give me your number :)'
 
   // change gif
-  document.getElementById('gif1').src = "/resources/pika3.gif";
+  document.getElementById('gif1').src = "resources/pika3.gif";
 
   // hide the buttons
   document.querySelector('.button-container').style.display = 'none';
@@ -45,7 +45,7 @@ function submitNumber() {
   const errorMsg = document.getElementById('errorMsg');
 
   // Change GIF
-  document.getElementById('gif1').src = "/resources/pika4.gif";
+  document.getElementById('gif1').src = "resources/pika4.gif";
 
   // Check if the entered number matches the HTML pattern rule natively
   if (phoneInput.checkValidity()) {
