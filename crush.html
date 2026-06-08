@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="crush.css">
+    <title>I have a question...</title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="gif-container">
+        <img id="gif1" src="/resources/pika1.gif">
+      </div>
+      <h1 id="question">Hi, will you go out with me?</h1>
+      <p id="subtext">Choose wisely :)</p>
+
+      <div class="button-container">
+        <button id="yesBtn" onclick="celebrate()">Yes</button>
+        <button id="noBtn" onmouseover="moveButton()">No</button>
+      </div>
+
+      <div id="phoneSection" style="display: none;">
+        <!--
+        <p style="font-size: 1rem; color: #976c6c;">
+          Can I get your number? :)
+        </p>
+        -->
+
+        <input 
+          type="tel"
+          id="phoneInput"
+          placeholder="Enter your number here"
+          required
+          pattern="^(70|71|72|73|74|75|76|77|78|79|81|82|83|84|88)\d{6}$"
+          title="Please enter a valid 8-digit PNG mobile number (
+            Digicel, Vodafone, Telikom, or bmobile)"
+        >
+
+        <button id="submitBtn" onclick="submitNumber()">
+          Send 
+        </button>
+        <p id="errorMsg" style="
+          color: red; 
+          font-size: 0.9rem; 
+          margin-top: 5px;
+          display:none;
+        ">
+          Invalid number format. Please check and try again.
+        </p>
+      </div>
+    </div>
+    
+    <script src="crush.js"></script>
+  </body>
+</html>
