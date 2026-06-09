@@ -116,11 +116,11 @@ button {
 @media (max-width: 600px) {
   .container {
     padding: 20px;          /* Shrinks the inner spacing */
-    width: 85%;             /* Keeps a nice border margin */
+    width: 78%;             /* Keeps a nice border margin */
   }
 
   h1 {
-    font-size: 1.6rem;      /* Shrinks the main text so it doesn't wrap awkwardly */
+    font-size: 1.5rem;      /* Shrinks the main text so it doesn't wrap awkwardly */
   }
 
   p {
