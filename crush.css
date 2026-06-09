@@ -112,5 +112,31 @@ button {
 }
 
 
+/* This only applies to screens smaller than 600px (phones) */
+@media (max-width: 600px) {
+  .container {
+    padding: 20px;          /* Shrinks the inner spacing */
+    width: 85%;             /* Keeps a nice border margin */
+  }
+
+  h1 {
+    font-size: 1.6rem;      /* Shrinks the main text so it doesn't wrap awkwardly */
+  }
+
+  p {
+    font-size: 1rem;        /* Shrinks subtext slightly */
+  }
+
+  .gif-container img {
+    max-width: 140px;       /* Makes the GIF slightly smaller to save space */
+  }
+
+  button {
+    padding: 10px 20px;     /* Makes buttons slightly more thumb-friendly and compact */
+    font-size: 0.9rem;
+  }
+}
+
+
 
 
