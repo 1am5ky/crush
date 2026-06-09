@@ -128,11 +128,11 @@ button {
   }
 
   .gif-container img {
-    max-width: 140px;       /* Makes the GIF slightly smaller to save space */
+    max-width: 200px;       /* Makes the GIF slightly smaller to save space */
   }
 
   button {
-    padding: 10px 20px;     /* Makes buttons slightly more thumb-friendly and compact */
+    padding: 12px 24px;     /* Makes buttons slightly more thumb-friendly and compact */
     font-size: 0.9rem;
   }
 }
