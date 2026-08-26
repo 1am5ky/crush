@@ -1,65 +1,71 @@
-function moveButton() {
-  const noBtn = document.getElementById('noBtn');
-
-  if (noBtn.style.position !== 'fixed') {
-    noBtn.style.position = 'fixed';
-    noBtn.style.left = noBtn.offsetLeft + 'px';
-    noBtn.style.top = noBtn.offsetTop + 'px';
-
-    // Generate random coordinates
-    const x = Math.random() * (window.innerWidth - noBtn.offsetWidth - 60);
-    const y = Math.random() * (window.innerHeight - noBtn.offsetHeight - 60);
-
-    // Move button
-    noBtn.style.left = x + 'px';
-    noBtn.style.top = y + 'px';
-
-  }
-   
+function moveBtn() {
+  const noBtn = document.getElementById("noBtn");
+  
+  // Generate random coordinates
   const x = Math.random() * (window.innerWidth - noBtn.offsetWidth - 60);
   const y = Math.random() * (window.innerHeight - noBtn.offsetHeight - 60);
 
+  // Move button
   noBtn.style.position = 'fixed';
-  noBtn.style.left = x + 'px';
-  noBtn.style.top = y + 'px'; 
+  noBtn.style.left = x + "px";
+  noBtn.style.top = y + "px";
 }
 
 function celebrate() {
-  document.getElementById('question').innerHTML = 'Great!';
-  document.getElementById('subtext').innerHTML = 'Give me your number :)'
+  const h1 = document.getElementById('question');
+  const subtext = document.getElementById('subText');
 
-  // change gif
-  document.getElementById('gif1').src = "resources/pika3.gif";
+  h1.innerHTML = "Awesome!";
+  subtext.innerHTML = "Let me get your number: ";
 
-  // hide the buttons
-  document.querySelector('.button-container').style.display = 'none';
+  // Change Gif
+  document.getElementById('gif').src = "resources/pika3.gif";
 
-  // Show phone input section
-  document.getElementById('phoneSection').style.display = 'block';
+  // Replace Buttons with Phone Number Input
+  document.querySelector(".btn-container").innerHTML = `
+    <div id="phone-input-section">
+      <input 
+        id="phone-input" 
+        type="tel" 
+        placeholder="Enter your number here"
+        required
+        pattern="^(70|71|72|73|74|75|76|77|78|79|81|82|83|84|88)\d{2}\s\d{2}$"
+        maxlength="9"
+      >
+      <button id="sendBtn" onclick="submitNumber()">
+        Send
+      </button>
+    </div>
+  `;
 
-  
+  // Ensure space as user types in number (7282 2323)
+  const phoneInput = document.querySelector('#phone-input');
+
+  phoneInput.addEventListener('input', (e)=> {
+    // Remove all non-digit characters (including spaces the user typed)
+    let value = e.target.value.replace(/\D/g, '');
+
+    //Format into a 4-4 split as they type
+    if (value.length > 4) {
+      e.target.value = value.substring(0, 4) + ' ' + value.substring(4, 8);
+    } else {
+      // If 4 digits or less, just show the digits raw
+      e.target.value = value;
+    }
+  })
 }
 
-function submitNumber() { 
-  const phoneInput = document.getElementById('phoneInput');
-  const errorMsg = document.getElementById('errorMsg');
+function submitNumber() {
+  // Change Gif
+  document.getElementById('gif').src = "resources/pika4.gif";
 
-  // Change GIF
-  document.getElementById('gif1').src = "resources/pika4.gif";
+  // Hide Input 
+  document.querySelector(".btn-container").innerHTML = '';
 
-  // Check if the entered number matches the HTML pattern rule natively
-  if (phoneInput.checkValidity()) {
-    errorMsg.style.display = 'none';
+  // Change top text
+  const h1 = document.getElementById('question');
+  const subtext = document.getElementById('subText');
 
-    // success behaviour
-    document.getElementById('question').innerHTML = "Got it!";
-    document.getElementById('subtext').innerHTML = "I'll text you later :)";
-    document.getElementById('phoneSection').style.display = 'none';
-
-    console.log("Her number: ", phoneInput.value);
-  } else {
-    // If she enters letters or wrong prefix, display error message
-    errorMsg.style.display = 'block';
-  }
-
+  h1.innerHTML = "Got it thanks!";
+  subtext.innerHTML = "I'll text you later :)";
 }
